@@ -36,8 +36,8 @@ public class DataSourceConfig {
         Map<String, String> parms = new HashMap<>();
         parms.put("loginPassword", "root");
         parms.put("loginUsername", "root");//账号 密码
-        parms.put("allow", "localhost");//允许访问的地址
-        parms.put("deny", "www.baidu.com");//不允许访问的地址
+//        parms.put("allow", "localhost");//允许访问的地址
+//        parms.put("deny", "www.baidu.com");//不允许访问的地址
         bean.setInitParameters(parms);
         return bean;
     }

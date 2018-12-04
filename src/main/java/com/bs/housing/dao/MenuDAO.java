@@ -2,7 +2,9 @@ package com.bs.housing.dao;
 
 import com.bs.housing.base.BaseDAO;
 import com.bs.housing.po.MenuPO;
+import org.springframework.cache.annotation.Cacheable;
 
+//import javax.persistence.Cacheable;
 import java.util.List;
 
 /**
@@ -35,5 +37,7 @@ public interface MenuDAO extends BaseDAO<MenuPO> {
      *
      * @return java.lang.Integer
      */
-    Integer findByMaxResourceID();
+//    Integer findByMaxResourceID();
+
+
 }

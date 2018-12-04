@@ -36,7 +36,7 @@ public class MenuController extends BaseController {
             HttpServletRequest request,
             // MenuDTO dto,
             ModelMap modelMap) {
-        List<MenuPO> all = menuService.getJpa().findAll();
+        List<MenuPO> all = menuService.menuTree();
         List<MenuDTO> menuDTOS = DozerMapper.mapperList(all, MenuDTO.class);
         modelMap.addAttribute("menuList", menuDTOS);
         return WebUtils.VIEW;

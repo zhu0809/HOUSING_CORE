@@ -12,6 +12,7 @@ import com.bs.housing.service.MenuService;
 import com.bs.housing.utils.TreeUtil;
 import net.sf.json.JSONArray;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.ModelMap;
 
@@ -24,6 +25,12 @@ import java.util.List;
  */
 @Service
 public class MenuServiceImpl extends BaseServiceImpl<MenuDAO, MenuDTO> implements MenuService {
+    @Cacheable(cacheNames = {"getMenuTree"}, key = "'menuTree'")
+    @Override
+    public List<MenuPO> menuTree() {
+        return dao.findAll();
+    }
+
     /**
      * <p> @方法描述： 获取属性菜单        </p>
      * <p> @创建人：	ZhuRongguo	        </p>
@@ -77,6 +84,4 @@ public class MenuServiceImpl extends BaseServiceImpl<MenuDAO, MenuDTO> implement
         MenuPO po = DozerMapper.mapper(dto, MenuPO.class);
         super.dao.save(po);
     }
-
-
 }

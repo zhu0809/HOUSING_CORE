@@ -4,7 +4,10 @@ import com.bs.housing.base.BaseService;
 import com.bs.housing.core.exception.ServiceException;
 import com.bs.housing.dao.MenuDAO;
 import com.bs.housing.dto.MenuDTO;
+import com.bs.housing.po.MenuPO;
 import org.springframework.ui.ModelMap;
+
+import java.util.List;
 
 /**
  * <p> @类描述：	                </p>
@@ -39,4 +42,7 @@ public interface MenuService extends BaseService<MenuDAO, MenuDTO> {
      * @return void
      */
     void save(boolean isResource, MenuDTO dto) throws ServiceException;
+
+
+    List<MenuPO>menuTree();
 }
