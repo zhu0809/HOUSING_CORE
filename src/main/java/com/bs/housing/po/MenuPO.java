@@ -31,8 +31,7 @@ public class MenuPO extends BasePO {
     private String resourceCode;//
     @Column
     private String resourceDesc;//资源描述
-    @Column(nullable = false)
-  //  @Min(value = 2)
+
     private Integer resourceGrade;//目录级别，最小是二级
     @Column
     private Integer resourceID;//自身资源id
@@ -41,7 +40,7 @@ public class MenuPO extends BasePO {
     @Column
     private Integer resourceOrder;
     @Column
-    private String resourceType;
+    private String resourceType;//1:文件夹，2:资源
 
     public void setAccessPath(String accessPath) {
         this.accessPath = accessPath;

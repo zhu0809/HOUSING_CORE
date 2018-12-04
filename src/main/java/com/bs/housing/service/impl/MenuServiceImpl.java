@@ -2,6 +2,7 @@ package com.bs.housing.service.impl;
 
 import com.bs.housing.base.BaseServiceImpl;
 import com.bs.housing.core.WebUtils;
+import com.bs.housing.core.exception.ServiceException;
 import com.bs.housing.core.mapper.DozerMapper;
 import com.bs.housing.dao.MenuDAO;
 import com.bs.housing.dto.JsTreeDto;
@@ -10,16 +11,11 @@ import com.bs.housing.po.MenuPO;
 import com.bs.housing.service.MenuService;
 import com.bs.housing.utils.TreeUtil;
 import net.sf.json.JSONArray;
-import net.sf.json.JSONObject;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.ModelMap;
-import org.springframework.util.CollectionUtils;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
-import java.util.Optional;
 
 /**
  * <p> @类描述：	                </p>
@@ -45,21 +41,41 @@ public class MenuServiceImpl extends BaseServiceImpl<MenuDAO, MenuDTO> implement
 
         JSONArray jsonArray = new JSONArray();
         for (MenuPO po : all) {
-            JsTreeDto jsonObject = new JsTreeDto();
-            jsonObject.setPid((po.getParentID()));
-            if (StringUtils.isBlank(po.getAccessPath())) {
-                jsonObject.setIcon("/images/icon/lib.png");
-            } else {
-                jsonObject.setIcon("/images/icon/file.png");
+            JsTreeDto dto = new JsTreeDto();
+            dto.setPid((po.getParentID()));
+            if (po.getResourceName().equals("房源管理")) {
+                System.out.println();
             }
-
-            jsonObject.setId(po.getResourceID());
-
-            jsonObject.setText(po.getResourceName());
-            jsonArray.add(jsonObject);
+            if (StringUtils.isBlank(po.getAccessPath()) || "#".equals(po.getAccessPath())) {
+                dto.setResource(false);
+                dto.setIcon("/images/icon/lib.png");
+            } else {
+                dto.setResource(true);
+                dto.setIcon("/images/icon/file.png");
+            }
+            dto.setResourceGrade(po.getResourceGrade());
+            dto.setId(po.getResourceID());
+            dto.setText(po.getResourceName());
+            jsonArray.add(dto);
         }
 
         modelMap.put(WebUtils.DATA, TreeUtil.treeMenuList(jsonArray, 1));
+    }
+
+    @Override
+    public void save(boolean isResource, MenuDTO dto) throws ServiceException {
+        if (isResource) {
+            if (StringUtils.isBlank(dto.getAccessPath())) {
+                throw new ServiceException("该目录为资源目录，资源地址为空");
+            }
+        } else {
+            dto.setAccessPath("#");
+        }
+        if (null == dto.getResourceID()) {
+
+        }
+        MenuPO po = DozerMapper.mapper(dto, MenuPO.class);
+        super.dao.save(po);
     }
 
 

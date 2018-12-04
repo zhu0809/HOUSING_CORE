@@ -2,13 +2,11 @@ package com.bs.housing.controller;
 
 import com.bs.housing.base.BaseController;
 import com.bs.housing.core.WebUtils;
+import com.bs.housing.core.exception.ServiceException;
 import com.bs.housing.core.mapper.DozerMapper;
-import com.bs.housing.dto.JsTreeDto;
 import com.bs.housing.dto.MenuDTO;
 import com.bs.housing.po.MenuPO;
 import com.bs.housing.service.MenuService;
-import net.sf.json.JSONArray;
-import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -53,34 +51,20 @@ public class MenuController extends BaseController {
         return WebUtils.VIEW;
     }
 
-    @RequestMapping(value = "batchSave", method = RequestMethod.POST)
-    View batchSave(
-            @RequestBody List<MenuDTO> list,
+    @RequestMapping(value = "save", method = RequestMethod.POST)
+    View save(
+            boolean isResource,
+            MenuDTO dto,
             HttpServletResponse response,
             HttpServletRequest request,
             ModelMap modelMap) {
-//        menuService.menuTree(modelMap);
-        for (MenuDTO dto : list) {
-            MenuPO mapper = DozerMapper.mapper(dto, MenuPO.class);
-            menuService.getJpa().save(mapper);
+        try {
+            menuService.save(isResource, dto);
+            modelMap.addAttribute(WebUtils.STATUS, true);
+        } catch (ServiceException e) {
+            modelMap.addAttribute(WebUtils.STATUS, false);
+            e.printStackTrace();
         }
         return WebUtils.VIEW;
     }
-
-//    public static JSONArray treeMenuList(JSONArray menuList, int parentId) {
-//        JSONArray childMenu = new JSONArray();
-//        for (Object object : menuList) {
-//            JSONObject jsonMenu = JSONObject.fromObject(object);
-//            int menuId = jsonMenu.getInt("id");
-//            int pid = jsonMenu.getInt("parent");
-//            if (parentId == pid) {
-//                JSONArray c_node = treeMenuList(menuList, menuId);
-//                jsonMenu.put("children", c_node);
-//                childMenu.add(jsonMenu);
-//            }
-//        }
-//        return childMenu;
-//    }
-
-
 }

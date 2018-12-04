@@ -12,6 +12,24 @@ public class JsTreeDto implements Serializable {
     private Integer id;
     private String text;
     private String icon = "icon02";
+    private Boolean resource;//是否是资源，否则是文件夹
+    private Integer resourceGrade;//目录级别
+
+    public Integer getResourceGrade() {
+        return resourceGrade;
+    }
+
+    public void setResourceGrade(Integer resourceGrade) {
+        this.resourceGrade = resourceGrade;
+    }
+
+    public Boolean getResource() {
+        return this.resource;
+    }
+
+    public void setResource(Boolean resource) {
+        this.resource = resource;
+    }
 
     public String getIcon() {
         return icon;

@@ -3,107 +3,121 @@
 <head>
     <title>菜单管理</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <script src="http://code.jquery.com/jquery-latest.js"></script>
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jstree/3.3.3/themes/default/style.min.css"/>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jstree/3.3.3/jstree.min.js"></script>
-    <!--<script type="text/javascript" src="../scripts/jquery/jquery-1.7.1.js"></script>-->
+    <script src="/scripts/jquery/jquery-latest.js"></script>
+    <!--<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jstree/3.3.3/themes/default/style.min.css"/>-->
+    <link rel="stylesheet" href="/style/styles/style.min.css" type="text/css"/>
+
+    <link href="/style/bootstrap/bootstrop.css" rel="stylesheet" type="text/css"/>
     <link href="../style/authority/basic_layout.css" rel="stylesheet" type="text/css">
     <link href="../style/authority/common_style.css" rel="stylesheet" type="text/css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jstree/3.3.3/jstree.min.js"></script>
+    <!--<script type="text/javascript" src="../scripts/jquery/jquery-1.7.1.js"></script>-->
     <script type="text/javascript" src="../scripts/authority/commonAll.js"></script>
     <script src="../scripts/My97DatePicker/WdatePicker.js" type="text/javascript" defer="defer"></script>
     <script type="text/javascript" src="../scripts/artDialog/artDialog.js?skin=default"></script>
-    <script type="text/javascript" src="/scripts/fancybox/jquery.fancybox-1.3.4.js"></script>
-    <script type="text/javascript" src="/scripts/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
-    <link rel="stylesheet" type="text/css" href="/style/authority/jquery.fancybox-1.3.4.css" media="screen"/>
+    <script type="text/javascript" src="/scripts/bootstrap/bootstrap.js"></script>
 
-    <script type="text/javascript">
-        $(document).ready(function () {
-            function loadMenu(resourceType, treeObj) {
-                $.ajax({
-                    type: "get",
-                    url: "/menu/getAllMenu",
-                    dataType: "json",
-                    success: function (datas) {
-                        var data = datas.menuList;
-
-                        console.log(data);
-
-                        if (data != null) {
-                            // 将返回的数据赋给zTree
-                            $.fn.zTree.init($("#" + treeObj), setting, data);
-                            //alert(treeObj);
-                            zTree = $.fn.zTree.getZTreeObj(treeObj);
-                            if (zTree) {
-                                // 默认展开所有节点
-                                zTree.expandAll(false);
-                            }
-                        }
-                    }
-                });
-                /**/// 如果返回数据不为空，加载"业务模块"目录
-                // if(data != null){
-                //     将返回的数据赋给zTree
-                // $.fn.zTree.init($("#"+treeObj), setting, data);
-                // alert(treeObj);
-                // zTree = $.fn.zTree.getZTreeObj(treeObj);
-                // if( zTree ){
-                //     默认展开所有节点
-                // zTree.expandAll(false);
-                // }
-                // }
-            }
-
-            /*
-             * 提交
-             */
-            $("#submitbutton").click(function () {
-                if (validateForm()) {
-                    checkFyFhSubmit();
-                }
-            });
-
-            /*
-             * 取消
-             */
-            $("#cancelbutton").click(function () {
-                /**  关闭弹出iframe  **/
-                window.parent.$.fancybox.close();
-            });
-
-            var result = 'null';
-            if (result == 'success') {
-                /**  关闭弹出iframe  **/
-                window.parent.$.fancybox.close();
-            }
-        });
-
-    </script>
 </head>
 <body>
 
 <div id="container"></div>
+<button id="create" class="btn btn-primary" data-toggle="modal" data-target="#myModal"></button>
+<form class="form-horizontal" role="form" id="myForm">
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <!--  定义模态框，过渡效果为淡入，id为myModal,tabindex=-1可以禁用使用tab切换，aria-labelledby用于引用模态框的标题，aria-hidden=true保持模态框在触发前窗口不可见  -->
+        <div class="modal-dialog">
+            <!--  显示模态框对话框模型（若不写下一个div则没有颜色）  -->
+            <div class="modal-content">
+                <!--  显示模态框白色背景，所有内容都写在这个div里面  -->
 
+                <div class="btn-info modal-header">
+
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <!--  关闭按钮  -->
+                    <h4 id="add-title"></h4>
+                    <!--  标题内容  -->
+                </div>
+
+                <div class="modal-body">
+                    <!--  模态框内容，我在此处添加一个表单 -->
+                    <form class="form-horizontal" role="form">
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">父节点名称</label>
+                            <div class="col-sm-9">
+                                <input type="text" id="parentName" readonly class="form-control well"
+                                       placeholder="父节点名称"/>
+
+                                <input type="text" id="parentID" readonly name="parentID"
+                                       class="hidden form-control well"/>
+                                <input type="text" id="resourceGrade" readonly name="resourceGrade"
+                                       class="hidden form-control well"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="resourceName" class="col-sm-2 control-label">名称</label>
+                            <div class="col-sm-9">
+                                <input type="text" id="resourceName" name="resourceName" class="form-control well"
+                                       placeholder="请输入名称"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="isResource" class="col-sm-2 control-label">是否为资源</label>
+                            <div class="col-sm-2">
+                                <input type="checkbox" checked class="form-control well col-sm-1" id="isResource"
+                                />
+                            </div>
+
+                            <label for="accessPath" class="accessPathHome col-sm-2 control-label">资源地址</label>
+                            <div class="col-sm-5">
+                                <input type="text" id="accessPath" name="accessPath"
+                                       class="accessPathHome form-control well"
+                                       placeholder="资源地址"/>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="modal-footer">
+                    <!--  模态框底部样式，一般是提交或者确定按钮 -->
+                    <button onclick="save()" class="btn btn-info">确定</button>
+                    <button type="reset" class="btn btn-default" data-dismiss="modal">取消</button>
+                </div>
+
+            </div><!-- /.modal-content -->
+        </div>
+    </div> <!-- /.modal -->
+</form>
 <script type="text/javascript">
 
     $(function () {
+        $("#create").hide();
         $.getJSON("/menu/menuTree", function (data) {
             init(data.data);
         })
+        $("#isResource").click(function () {
+            if (!this.checked) {
+                $(".accessPathHome").hide();
+            } else {
+                $(".accessPathHome").show();
+            }
+        });
 
     });
 
-    function create(obj) {
-        $("#addBtn").fancybox({
-            'href'  : '/menu/addNode.html',
-            'width' : 733,
-            'height' : 530,
-            'type' : 'iframe',
-            'hideOnOverlayClick' : false,
-            'showCloseButton' : false,
-            'onClosed' : function() {
-                window.location.href = 'house_list.html';
-            }
-        });
+    function create(objOriginal) {
+        var obj = objOriginal.original;
+        console.log(obj);
+        var resource = obj.resource;
+        if (resource) {
+            alert("该资源不是文件夹，无法创建子类");
+            return;
+        }
+        $("#parentID").val(obj.id);
+        $("#resourceGrade").val((obj.resourceGrade) + 1);//资源级别加1
+        $("#parentName").val(obj.text);
+
+        $("#create").click();
     }
 
     function init(data) {
@@ -127,10 +141,8 @@
                         "label": "新建菜单",
                         "icon": "glyphicon glyphicon-plus",
                         "action": function (data) {
-                            console.log(data);
                             var inst = $.jstree.reference(data.reference),
                                 obj = inst.get_node(data.reference);
-                            console.log(obj);
 
                             create(obj);
                         }
@@ -170,6 +182,26 @@
             },
 
             "plugins": ["contextmenu", "themes"]
+        });
+    }
+
+    function save() {
+        $.ajax({
+            //几个参数需要注意一下
+            type: "POST",//方法类型
+            dataType: "json",//预期服务器返回的数据类型
+            url: "/menu/save",//url
+            data: $('#myForm').serialize(),
+         //   contentType: "application/json;charset=utf-8",
+            success: function (result) {
+                console.log(result);//打印服务端返回的数据(调试用)
+                if (result.resultCode == 200) {
+                    alert("SUCCESS");
+                }
+            },
+            error: function () {
+                alert("异常！");
+            }
         });
     }
 

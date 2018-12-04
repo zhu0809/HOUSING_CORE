@@ -14,5 +14,6 @@ public interface WebUtils {
     String RESULT = "result";
     String MESSAGE = "message";
     String DATA = "data";
+    String STATUS = "status";
 //    String OBJECT = "object";
 }
