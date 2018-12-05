@@ -14,7 +14,7 @@ import java.util.List;
  * <p> @创建人：ZhuRongguo	    </p>
  * <p> @创建时间：2018/11/29 18:25</p>
  */
-public interface MenuService extends BaseService<MenuDAO, MenuDTO> {
+public interface MenuService extends BaseService<MenuPO, MenuDAO, MenuDTO> {
     /**
      * <p> @方法描述：菜单树             </p>
      * <p> @创建人：	ZhuRongguo	        </p>
@@ -36,13 +36,12 @@ public interface MenuService extends BaseService<MenuDAO, MenuDTO> {
      * <p> @修改时间：2018/11/30 23:17	</p>
      * <p> @修改说明：	                </p>
      *
-     *
      * @param isResource 是否是资源
-     * @param dto 菜单实体
+     * @param dto        菜单实体
      * @return void
      */
     void save(boolean isResource, MenuDTO dto) throws ServiceException;
 
 
-    List<MenuPO>menuTree();
+    List<MenuPO> menuTree();
 }

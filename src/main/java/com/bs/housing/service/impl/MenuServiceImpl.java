@@ -24,7 +24,7 @@ import java.util.List;
  * <p> @创建时间：2018/11/29 21:14</p>
  */
 @Service
-public class MenuServiceImpl extends BaseServiceImpl<MenuDAO, MenuDTO> implements MenuService {
+public class MenuServiceImpl extends BaseServiceImpl<MenuPO, MenuDAO, MenuDTO> implements MenuService {
     @Cacheable(cacheNames = {"getMenuTree"}, key = "'menuTree'")
     @Override
     public List<MenuPO> menuTree() {

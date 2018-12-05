@@ -8,7 +8,7 @@ import java.util.Date;
  * <p> @创建人：ZhuRongguo	    </p>
  * <p> @创建时间：2018/11/22 16:47</p>
  */
-public class BaseDTO implements Serializable {
+public class BaseDTO extends BasePage {
     private Long id;
 
     private Date createDate;
