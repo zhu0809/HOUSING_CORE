@@ -30,5 +30,5 @@ public interface BaseService<PO extends BasePO, Dao extends BaseDAO, Dto extends
      *
      * @return Dao
      */
-    Page<PO> findPage(Integer page, Integer pageSize);
+    Page<PO> findPage(Dto dto);
 }

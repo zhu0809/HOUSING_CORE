@@ -30,4 +30,12 @@ public class BasePage implements Serializable {
     public void setSort(Sort sort) {
         this.sort = sort;
     }
+
+    public int getThisPage() {
+        return thisPage;
+    }
+
+    public void setThisPage(int thisPage) {
+        this.thisPage = thisPage;
+    }
 }

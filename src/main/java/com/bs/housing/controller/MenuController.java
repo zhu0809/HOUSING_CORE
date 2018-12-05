@@ -42,6 +42,19 @@ public class MenuController extends BaseController {
         return WebUtils.VIEW;
     }
 
+    /**
+     * <p> @方法描述：	                </p>
+     * <p> @创建人：	ZhuRongguo	        </p>
+     * <p> @创建时间：2018/12/5 15:53   	</p>
+     * <p> @修改人：	ZhuRongguo	        </p>
+     * <p> @修改时间：2018/12/5 15:53	</p>
+     * <p> @修改说明：	                </p>
+     *
+     * @param response
+     * @param request
+     * @param modelMap
+     * @return org.springframework.web.servlet.View
+     */
     @RequestMapping(value = "menuTree")
     View menuTree(
             HttpServletResponse response,
@@ -51,6 +64,21 @@ public class MenuController extends BaseController {
         return WebUtils.VIEW;
     }
 
+    /**
+     * <p> @方法描述：	                </p>
+     * <p> @创建人：	ZhuRongguo	        </p>
+     * <p> @创建时间：2018/12/5 15:54   	</p>
+     * <p> @修改人：	ZhuRongguo	        </p>
+     * <p> @修改时间：2018/12/5 15:54	</p>
+     * <p> @修改说明：	                </p>
+     *
+     * @param isResource 是否认是资源  否则为文件夹
+     * @param dto 目录
+     * @param response
+     * @param request
+     * @param modelMap
+     * @return org.springframework.web.servlet.View
+     */
     @RequestMapping(value = "save", method = RequestMethod.POST)
     View save(
             boolean isResource,
