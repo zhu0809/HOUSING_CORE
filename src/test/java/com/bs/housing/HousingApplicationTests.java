@@ -40,7 +40,6 @@ public class HousingApplicationTests {
 
         System.out.println(all);
     }
-
 }
 
 /*

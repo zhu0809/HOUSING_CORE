@@ -12,7 +12,7 @@ import java.io.Serializable;
 public class BasePage implements Serializable {
 
     private int pageSize = 10;
-    private int thisPage = 0;
+    private int thisPage = 1;
     private static Sort sort = new Sort(Sort.Direction.DESC, "createDate");
 
     public int getPageSize() {

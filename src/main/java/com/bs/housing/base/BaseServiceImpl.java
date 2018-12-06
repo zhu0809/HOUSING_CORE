@@ -28,15 +28,11 @@ public abstract class BaseServiceImpl<PO
 
     @Override
     public Page<PO> findPage(DTO dto) {
-        Sort sort = dto.getSort(); //创建时间降序排序
+        Sort sort = dto.getSort();
         int page = dto.getThisPage();
         int pageSize = dto.getPageSize();
-
-        //方法过时
-        //Pageable pageable = new PageRequest(page - 1, pageSize, sort);
         Pageable pageable = PageRequest.of(page - 1, pageSize, sort);
         Page<PO> all = dao.findAll(pageable);
-        List<PO> collect = all.get().collect(Collectors.toList());
         return all;
     }
 }

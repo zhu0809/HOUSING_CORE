@@ -1,7 +1,7 @@
 package com.bs.housing.service.impl;
 
 import com.bs.housing.base.BaseServiceImpl;
-import com.bs.housing.core.WebUtils;
+import com.bs.housing.utils.WebUtils;
 import com.bs.housing.core.exception.ServiceException;
 import com.bs.housing.core.mapper.DozerMapper;
 import com.bs.housing.dao.MenuDAO;

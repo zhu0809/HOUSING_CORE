@@ -1,0 +1,58 @@
+<html>
+<head>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css"/>
+    <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+    <!DOCTYPE html>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+
+    <style>
+        #example tr > td {
+            text-align: center;
+        }
+
+        .dataTables_scrollHead thead th {
+            text-align: center !important;
+        }
+
+        td:first-child {
+            color: #1abc9c;
+        }
+    </style>
+</head>
+<body>
+<div class="">
+    <table id="datatable" class="display" cellspacing="0" width="99%">
+        <thead>
+        <tr style="height: 45px;">
+            <th>序号</th>
+            <th>姓名</th>
+            <th>日期</th>
+            <th>开始时间</th>
+            <th>结束时间</th>
+            <th>计时总计</th>
+        </tr>
+        </thead>
+    </table>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $("#datatable").dataTable({
+            "processing": true,
+            "serverSide": true,
+            "ajax" : "menu/fp",
+            "columns": [
+                {"data": "id", "bSortable": false},
+                {"data": "createDate"},
+                {"data": "lastName"}
+            ]
+        });
+    });
+</script>
+</body>
+</html>
