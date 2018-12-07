@@ -1,9 +1,10 @@
 package com.bs.housing.service.impl;
 
 import com.bs.housing.base.BaseServiceImpl;
+import com.bs.housing.constant.IconEnum;
 import com.bs.housing.utils.WebUtils;
 import com.bs.housing.core.exception.ServiceException;
-import com.bs.housing.core.mapper.DozerMapper;
+import com.bs.housing.utils.mapper.DozerMapper;
 import com.bs.housing.dao.MenuDAO;
 import com.bs.housing.dto.JsTreeDto;
 import com.bs.housing.dto.MenuDTO;
@@ -55,10 +56,10 @@ public class MenuServiceImpl extends BaseServiceImpl<MenuPO, MenuDAO, MenuDTO> i
             }
             if (StringUtils.isBlank(po.getAccessPath()) || "#".equals(po.getAccessPath())) {
                 dto.setResource(false);
-                dto.setIcon("/images/icon/lib.png");
+                dto.setIcon(IconEnum.LIB.getPath());
             } else {
                 dto.setResource(true);
-                dto.setIcon("/images/icon/file.png");
+                dto.setIcon(IconEnum.FILE.getPath());
             }
             dto.setResourceGrade(po.getResourceGrade());
             dto.setId(po.getResourceID());

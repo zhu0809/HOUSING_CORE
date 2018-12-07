@@ -3,7 +3,7 @@ package com.bs.housing.controller;
 import com.bs.housing.base.BaseController;
 import com.bs.housing.utils.WebUtils;
 import com.bs.housing.core.exception.ServiceException;
-import com.bs.housing.core.mapper.DozerMapper;
+import com.bs.housing.utils.mapper.DozerMapper;
 import com.bs.housing.dto.MenuDTO;
 import com.bs.housing.po.MenuPO;
 import com.bs.housing.service.MenuService;
@@ -18,7 +18,6 @@ import org.springframework.web.servlet.View;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;
-import java.util.Map;
 import java.util.stream.Collectors;
 
 /**
