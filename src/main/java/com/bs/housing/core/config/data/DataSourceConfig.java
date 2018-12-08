@@ -1,4 +1,4 @@
-package com.bs.housing.core.data;
+package com.bs.housing.core.config.data;
 
 import com.alibaba.druid.pool.DruidDataSource;
 import com.alibaba.druid.support.http.StatViewServlet;

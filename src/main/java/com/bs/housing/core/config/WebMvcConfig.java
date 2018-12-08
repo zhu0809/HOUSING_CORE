@@ -1,4 +1,4 @@
-package com.bs.housing.core;
+package com.bs.housing.core.config;
 
 import org.apache.log4j.Logger;
 import org.springframework.context.MessageSource;
@@ -30,9 +30,10 @@ public class WebMvcConfig extends WebMvcConfigurationSupport {
 
     /**
      * 描述 : <注册视图处理器>. <br>
-     *<p>
-     <使用方法说明>
-     </p>
+     * <p>
+     * <使用方法说明>
+     * </p>
+     *
      * @return
      */
     @Bean
@@ -46,9 +47,10 @@ public class WebMvcConfig extends WebMvcConfigurationSupport {
 
     /**
      * 描述 : <注册消息资源处理器>. <br>
-     *<p>
-     <使用方法说明>
-     </p>
+     * <p>
+     * <使用方法说明>
+     * </p>
+     *
      * @return
      */
     @Bean
@@ -62,48 +64,52 @@ public class WebMvcConfig extends WebMvcConfigurationSupport {
 
     /**
      * 描述 : <注册servlet适配器>. <br>
-     *<p>
-     <只需要在自定义的servlet上用@Controller("映射路径")标注即可>
-     </p>
+     * <p>
+     * <只需要在自定义的servlet上用@Controller("映射路径")标注即可>
+     * </p>
+     *
      * @return
      */
     @Bean
-    public HandlerAdapter servletHandlerAdapter(){
+    public HandlerAdapter servletHandlerAdapter() {
         logger.info("HandlerAdapter");
         return new SimpleServletHandlerAdapter();
     }
 
     /**
      * 描述 : <本地化拦截器>. <br>
-     *<p>
-     <使用方法说明>
-     </p>
+     * <p>
+     * <使用方法说明>
+     * </p>
+     *
      * @return
      */
     @Bean
-    public LocaleChangeInterceptor localeChangeInterceptor(){
+    public LocaleChangeInterceptor localeChangeInterceptor() {
         logger.info("LocaleChangeInterceptor");
         return new LocaleChangeInterceptor();
     }
 
     /**
      * 描述 : <基于cookie的本地化资源处理器>. <br>
-     *<p>
-     <使用方法说明>
-     </p>
+     * <p>
+     * <使用方法说明>
+     * </p>
+     *
      * @return
      */
-    @Bean(name="localeResolver")
-    public CookieLocaleResolver cookieLocaleResolver(){
+    @Bean(name = "localeResolver")
+    public CookieLocaleResolver cookieLocaleResolver() {
         logger.info("CookieLocaleResolver");
         return new CookieLocaleResolver();
     }
 
     /**
      * 描述 : <添加拦截器>. <br>
-     *<p>
-     <使用方法说明>
-     </p>
+     * <p>
+     * <使用方法说明>
+     * </p>
+     *
      * @param registry
      */
     @Override
@@ -116,9 +122,10 @@ public class WebMvcConfig extends WebMvcConfigurationSupport {
 
     /**
      * 描述 : <资源访问处理器>. <br>
-     *<p>
-     <可以在jsp中使用/static/**的方式访问/WEB-INF/static/下的内容>
-     </p>
+     * <p>
+     * <可以在jsp中使用/static/**的方式访问/WEB-INF/static/下的内容>
+     * </p>
+     *
      * @param registry
      */
     @Override
@@ -129,28 +136,30 @@ public class WebMvcConfig extends WebMvcConfigurationSupport {
 
     /**
      * 描述 : <文件上传处理器>. <br>
-     *<p>
-     <使用方法说明>
-     </p>
+     * <p>
+     * <使用方法说明>
+     * </p>
+     *
      * @return
      */
-    @Bean(name="multipartResolver")
-    public CommonsMultipartResolver commonsMultipartResolver(){
+    @Bean(name = "multipartResolver")
+    public CommonsMultipartResolver commonsMultipartResolver() {
         logger.info("CommonsMultipartResolver");
         return new CommonsMultipartResolver();
     }
 
     /**
      * 描述 : <异常处理器>. <br>
-     *<p>
-     <系统运行时遇到指定的异常将会跳转到指定的页面>
-     </p>
+     * <p>
+     * <系统运行时遇到指定的异常将会跳转到指定的页面>
+     * </p>
+     *
      * @return
      */
-    @Bean(name="exceptionResolver")
-    public SimpleMappingExceptionResolver simpleMappingExceptionResolver(){
+    @Bean(name = "exceptionResolver")
+    public SimpleMappingExceptionResolver simpleMappingExceptionResolver() {
         logger.info("CP_SimpleMappingExceptionResolver");
-        SimpleMappingExceptionResolver simpleMappingExceptionResolver= new SimpleMappingExceptionResolver();
+        SimpleMappingExceptionResolver simpleMappingExceptionResolver = new SimpleMappingExceptionResolver();
         simpleMappingExceptionResolver.setDefaultErrorView("common_error");
         simpleMappingExceptionResolver.setExceptionAttribute("exception");
         Properties properties = new Properties();

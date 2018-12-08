@@ -1,4 +1,4 @@
-package com.bs.housing.core;
+package com.bs.housing.core.config;
 
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;

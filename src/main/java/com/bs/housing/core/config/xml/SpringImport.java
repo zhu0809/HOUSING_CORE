@@ -1,4 +1,4 @@
-package com.bs.housing.core.xml;
+package com.bs.housing.core.config.xml;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.ImportResource;
