@@ -4,9 +4,7 @@ import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
 import org.apache.shiro.mgt.SecurityManager;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
 import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 
 import java.util.LinkedHashMap;
 
@@ -15,7 +13,7 @@ import java.util.LinkedHashMap;
  * <p> @创建人：ZhuRongguo	    </p>
  * <p> @创建时间：2018/12/7 23:26</p>
  */
-@Configuration
+//@Configuration
 public class HashedCredentialsMatcherConfig {
     @Bean()
     public HashedCredentialsMatcher hashedCredentialsMatcher() {
@@ -42,7 +40,7 @@ public class HashedCredentialsMatcherConfig {
         return authRealm;
     }
 
-    //@Bean()
+    @Bean()
     public ShiroFilterFactoryBean shiroFilter(SecurityManager manager) {
         ShiroFilterFactoryBean bean = new ShiroFilterFactoryBean();
         //设置securityManager
@@ -58,16 +56,16 @@ public class HashedCredentialsMatcherConfig {
         LinkedHashMap<String, String> filterChainDefinitionMap = new LinkedHashMap<>();
 
 
-//        filterChainDefinitionMap.put("/account/logout", "logout");
+        filterChainDefinitionMap.put("/account/logout", "logout");
 
+        filterChainDefinitionMap.put("/account/login", "anon");
         filterChainDefinitionMap.put("/static/images/**", "anon");
         filterChainDefinitionMap.put("/static/scripts/**", "anon");
         filterChainDefinitionMap.put("/static/style/**", "anon");
-        filterChainDefinitionMap.put("/static/druid/**", "anon");
-        filterChainDefinitionMap.put("/account/login", "anon");
+        filterChainDefinitionMap.put("/druid/**", "anon");
 
-        filterChainDefinitionMap.put("/admin", "roles[admin]");
-        filterChainDefinitionMap.put("/edit", "perms[delete]");
+//        filterChainDefinitionMap.put("/admin", "roles[admin]");
+//        filterChainDefinitionMap.put("/edit", "perms[delete]");
         //需要登录访问的资源 , 一般将/**放在最下边
         filterChainDefinitionMap.put("/**", "authc");
         bean.setFilterChainDefinitionMap(filterChainDefinitionMap);

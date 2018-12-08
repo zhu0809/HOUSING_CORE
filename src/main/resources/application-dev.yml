@@ -41,4 +41,7 @@ spring:
   resources:
     static-locations: [classpath:/META-INF/resources/,classpath:/resources/,
                         classpath:/public/,classpath:/static/,classpath:/processes/,file:d:\\project\\file]
+druid:
+  username: root
+  password: root
 

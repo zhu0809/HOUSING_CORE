@@ -3,6 +3,7 @@ package com.bs.housing.core.data;
 import com.alibaba.druid.pool.DruidDataSource;
 import com.alibaba.druid.support.http.StatViewServlet;
 import com.alibaba.druid.support.http.WebStatFilter;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
@@ -20,6 +21,12 @@ import java.util.Map;
  */
 @Configuration
 public class DataSourceConfig {
+
+    @Value(value = "${druid.username}")
+    private String username;
+    @Value(value = "${druid.password}")
+    private String password;
+
     @ConfigurationProperties(prefix = "spring.datasource")
     @Bean
     public DruidDataSource druidDataSource() {
@@ -34,8 +41,8 @@ public class DataSourceConfig {
                 = new ServletRegistrationBean(
                 new StatViewServlet(), "/druid/*");
         Map<String, String> parms = new HashMap<>();
-        parms.put("loginPassword", "root");
-        parms.put("loginUsername", "root");//账号 密码
+        parms.put("loginPassword", username);
+        parms.put("loginUsername", password);//账号 密码
 //        parms.put("allow", "localhost");//允许访问的地址
 //        parms.put("deny", "www.baidu.com");//不允许访问的地址
         bean.setInitParameters(parms);

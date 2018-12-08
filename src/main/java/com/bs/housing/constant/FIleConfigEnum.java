@@ -6,7 +6,7 @@ package com.bs.housing.constant;
  * <p> @创建时间：2018/12/7 9:52</p>
  */
 public enum FIleConfigEnum {
-    abstrac;
+    abstrac(0, null, null, null);
 
     FIleConfigEnum(long id, String name, String path, String description) {
         this.id = id;
@@ -15,8 +15,6 @@ public enum FIleConfigEnum {
         this.description = description;
     }
 
-    FIleConfigEnum() {
-    }
 
     long id;
     String name;

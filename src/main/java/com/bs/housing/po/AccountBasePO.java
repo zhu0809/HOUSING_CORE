@@ -11,6 +11,6 @@ import javax.persistence.Table;
  * <p> @创建时间：2018/12/7 23:08</p>
  */
 //@Entity
-//@Table(name = "t_core_account")
-public class AccountPO extends BasePO {
+//@Table(name = "t_core_base_account")
+public class AccountBasePO extends BasePO {
 }
