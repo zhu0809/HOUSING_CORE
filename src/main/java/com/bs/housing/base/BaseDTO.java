@@ -1,6 +1,5 @@
 package com.bs.housing.base;
 
-import java.io.Serializable;
 import java.util.Date;
 
 /**

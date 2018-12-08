@@ -2,7 +2,6 @@ package com.bs.housing.dto;
 
 import com.bs.housing.base.BaseDTO;
 
-import javax.persistence.SecondaryTable;
 import java.util.Set;
 
 

@@ -1,7 +1,5 @@
 package com.bs.housing.po;
 
-import com.bs.housing.base.BasePO;
-
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;

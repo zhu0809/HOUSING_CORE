@@ -2,10 +2,10 @@ package com.bs.housing.dao;
 
 import com.bs.housing.base.BaseDAO;
 import com.bs.housing.po.MenuPO;
-import org.springframework.cache.annotation.Cacheable;
+
+import java.util.List;
 
 //import javax.persistence.Cacheable;
-import java.util.List;
 
 /**
  * <p> @类描述：	                </p>

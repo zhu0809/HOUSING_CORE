@@ -5,7 +5,6 @@ import com.bs.housing.base.BasePO;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
-import javax.validation.constraints.Min;
 
 /**
  * Copyright 2018 bejson.com

@@ -1,7 +1,6 @@
 package com.bs.housing.controller.account;
 
 import com.bs.housing.base.BaseController;
-import com.bs.housing.utils.WebUtils;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;

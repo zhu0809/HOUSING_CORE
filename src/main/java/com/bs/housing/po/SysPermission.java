@@ -1,8 +1,5 @@
 package com.bs.housing.po;
 
-import com.bs.housing.base.BasePO;
-import org.hibernate.validator.constraints.SafeHtml;
-
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
