@@ -9,7 +9,6 @@ import java.util.List;
  * <p> @创建人：ZhuRongguo	    </p>
  * <p> @创建时间：2018/12/5 23:17</p>
  */
-@Entity
 public class SysPermission implements Serializable {
     @Id
     @GeneratedValue

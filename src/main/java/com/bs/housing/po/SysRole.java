@@ -9,7 +9,6 @@ import java.util.List;
  * <p> @创建人：ZhuRongguo	    </p>
  * <p> @创建时间：2018/12/5 23:16</p>
  */
-@Entity
 public class SysRole implements Serializable {
     @Id
     @GeneratedValue
@@ -19,12 +18,12 @@ public class SysRole implements Serializable {
     private Boolean available = Boolean.FALSE; // 是否可用,如果不可用将不会添加给用户
 
     //角色 -- 权限关系：多对多关系;
-    @ManyToMany(fetch = FetchType.EAGER)
+    @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "SysRolePermission", joinColumns = {@JoinColumn(name = "roleId")}, inverseJoinColumns = {@JoinColumn(name = "permissionId")})
     private List<SysPermission> permissions;
 
     // 用户 - 角色关系定义;
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "SysUserRole", joinColumns = {@JoinColumn(name = "roleId")}, inverseJoinColumns = {@JoinColumn(name = "uid")})
     private List<UserInfo> userInfos;// 一个角色对应多个用户
 
