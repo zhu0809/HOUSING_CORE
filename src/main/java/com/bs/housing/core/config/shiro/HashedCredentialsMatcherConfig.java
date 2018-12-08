@@ -2,9 +2,11 @@ package com.bs.housing.core.config.shiro;
 
 import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
 import org.apache.shiro.mgt.SecurityManager;
+import org.apache.shiro.realm.Realm;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
 import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
 import java.util.LinkedHashMap;
 
@@ -13,7 +15,7 @@ import java.util.LinkedHashMap;
  * <p> @创建人：ZhuRongguo	    </p>
  * <p> @创建时间：2018/12/7 23:26</p>
  */
-//@Configuration
+@Configuration
 public class HashedCredentialsMatcherConfig {
     @Bean()
     public HashedCredentialsMatcher hashedCredentialsMatcher() {
@@ -30,6 +32,12 @@ public class HashedCredentialsMatcherConfig {
     public SecurityManager securityManager(RealmConfig authRealm) {
         DefaultWebSecurityManager manager = new DefaultWebSecurityManager();
         manager.setRealm(authRealm);
+        return manager;
+    }
+
+    @Bean()
+    public Realm realm() {
+        Realm manager = new RealmConfig();
         return manager;
     }
 

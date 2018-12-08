@@ -36,10 +36,4 @@ public class FileController {
         return "/success";
     }
 
-    @RequestMapping("test")
-    @ResponseBody
-    public String test() {
-
-        return "/success";
-    }
 }

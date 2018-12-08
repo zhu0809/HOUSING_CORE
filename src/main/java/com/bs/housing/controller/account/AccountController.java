@@ -2,6 +2,9 @@ package com.bs.housing.controller.account;
 
 import com.bs.housing.base.BaseController;
 import com.bs.housing.utils.WebUtils;
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authc.UsernamePasswordToken;
+import org.apache.shiro.subject.Subject;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,11 +19,17 @@ import javax.servlet.http.HttpServletResponse;
  * <p> @创建时间：2018/12/8 13:55</p>
  */
 @RestController
-@RequestMapping("user")
+@RequestMapping(value = "account")
 public class AccountController extends BaseController {
 
-    @RequestMapping(name = "login", method = RequestMethod.POST)
+    @RequestMapping(value = "login", method = RequestMethod.POST)
     public View login(String username, String password, HttpServletResponse response, HttpServletRequest request) {
-        return WebUtils.VIEW;
+        Subject user = SecurityUtils.getSubject();
+        UsernamePasswordToken usernamePasswordToken = new UsernamePasswordToken(username, password);
+        if (user.isAuthenticated()) {//已经认证
+            user.login(usernamePasswordToken);
+        }
+
+        return null;
     }
 }
