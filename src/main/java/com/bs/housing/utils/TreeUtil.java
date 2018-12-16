@@ -21,18 +21,21 @@ public class TreeUtil {
      * @param parentId 最上层关键点
      * @return net.sf.json.JSONArray 结果集
      */
-    public static JSONArray treeMenuList(JSONArray menuList, int parentId) {
+    public static JSONArray treeMenuList(JSONArray menuList, int parentId,
+                                         String parentName,
+                                         String childrenName,
+                                         String thisName) {
         JSONArray childMenu = new JSONArray();
         for (Object object : menuList) {
             JSONObject jsonMenu = JSONObject.fromObject(object);
-            int menuId = jsonMenu.getInt("id");
-            int pid = jsonMenu.getInt("pid");
+            int menuId = jsonMenu.getInt(thisName);
+            int pid = jsonMenu.getInt(parentName);
             if (parentId == pid) {
-                JSONArray c_node = treeMenuList(menuList, menuId);
+                JSONArray c_node = treeMenuList(menuList, menuId, parentName, childrenName, thisName);
                 if (c_node.size() == 0) {
                     c_node = null;
                 }
-                jsonMenu.put("children", c_node);
+                jsonMenu.put(childrenName, c_node);
                 childMenu.add(jsonMenu);
             }
         }

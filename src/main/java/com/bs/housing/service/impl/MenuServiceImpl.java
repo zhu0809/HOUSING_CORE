@@ -67,7 +67,7 @@ public class MenuServiceImpl extends BaseServiceImpl<MenuPO, MenuDAO, MenuDTO> i
             jsonArray.add(dto);
         }
 
-        modelMap.put(WebUtils.DATA, TreeUtil.treeMenuList(jsonArray, 1));
+        modelMap.put(WebUtils.DATA, TreeUtil.treeMenuList(jsonArray, 1, "pid", "children", "id"));
     }
 
     @Override
