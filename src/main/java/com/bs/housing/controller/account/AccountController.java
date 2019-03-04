@@ -4,8 +4,8 @@ import com.bs.housing.base.BaseController;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.View;
 
@@ -21,7 +21,7 @@ import javax.servlet.http.HttpServletResponse;
 @RequestMapping(value = "account")
 public class AccountController extends BaseController {
 
-    @RequestMapping(value = "login", method = RequestMethod.POST)
+    @PostMapping(value = "login")
     public View login(String username, String password, HttpServletResponse response, HttpServletRequest request) {
         Subject user = SecurityUtils.getSubject();
         UsernamePasswordToken usernamePasswordToken = new UsernamePasswordToken(username, password);
