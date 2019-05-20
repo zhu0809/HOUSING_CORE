@@ -48,7 +48,7 @@ public class HashedCredentialsMatcherConfig {
         return authRealm;
     }
 
-    @Bean()
+  //  @Bean()
     public ShiroFilterFactoryBean shiroFilter(SecurityManager manager) {
         ShiroFilterFactoryBean bean = new ShiroFilterFactoryBean();
         //设置securityManager

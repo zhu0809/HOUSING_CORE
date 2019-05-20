@@ -5,14 +5,6 @@ import com.bs.housing.base.BaseDTO;
 import java.util.Set;
 
 
-/**
- * Copyright 2018 bejson.com
- * <p>
- * Auto-generated: 2018-11-29 17:53:47
- *
- * @author bejson.com (i@bejson.com)
- * @website http://www.bejson.com/java2pojo/
- */
 public class MenuDTO extends BaseDTO {
 
     private String accessPath = "#";//如果节点路径为空或者为"#"，不允许单击操作
