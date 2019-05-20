@@ -32,11 +32,11 @@ public class DozerMapper {
     }
 
     public static <T, R> List<R> mapperList(Collection<T> list, Class<R> t) {
-        List<R> list1 = new ArrayList<>();
+        List<R> arrayList = new ArrayList<>();
         for (T ts : list) {
             R mapper = mapper(ts, t);
-            list1.add(mapper);
+            arrayList.add(mapper);
         }
-        return list1;
+        return arrayList;
     }
 }
