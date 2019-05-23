@@ -3,12 +3,8 @@ package com.bs.housing.core.exception;
 import java.util.Date;
 
 /**
- * <p> @类描述：         自定义Dao错误对象			</p>
- * <p> @创建人：        AkatsukiSimo Xie		</p>
- * <p> @创建时间：    2015-12-12 上午10:59:50	</p>
- * <p> @修改人：        AkatsukiSimo Xie		</p>
- * <p> @修改时间：    2015-12-12 上午10:59:50	</p>
- * <p> @版本信息：    1.0					</p>
+ *自定义数据库操作异常
+ *
  */
 public class DaoException extends Exception {
 
