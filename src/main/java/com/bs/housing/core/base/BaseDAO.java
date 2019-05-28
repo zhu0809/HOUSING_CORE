@@ -1,4 +1,4 @@
-package com.bs.housing.base;
+package com.bs.housing.core.base;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

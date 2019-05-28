@@ -1,4 +1,4 @@
-package com.bs.housing.base;
+package com.bs.housing.core.base;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

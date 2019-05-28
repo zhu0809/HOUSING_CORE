@@ -1,4 +1,4 @@
-package com.bs.housing.base;
+package com.bs.housing.core.base;
 
 import com.bs.housing.core.EntityListener;
 
