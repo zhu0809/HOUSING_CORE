@@ -31,4 +31,13 @@ public interface RegExUtils {
      * 验证邮箱的正则表达式
      */
     String MAIL = "^[A-Za-z\\d]+([-_.][A-Za-z\\d]+)*@([A-Za-z\\d]+[-.])+[A-Za-z\\d]{2,4}$";
+
+
+    /**
+     * 正则表达式匹配
+     *
+     * @param str 需要验证的字符串
+     * @return 是否匹配
+     */
+    Boolean matches(String str);
 }
