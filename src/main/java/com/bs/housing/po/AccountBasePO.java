@@ -1,7 +1,7 @@
 package com.bs.housing.po;
 
-import com.bs.housing.base.BasePO;
 import com.bs.housing.constant.AccountStatusEnum;
+import com.bs.housing.core.base.BasePO;
 
 import javax.persistence.*;
 

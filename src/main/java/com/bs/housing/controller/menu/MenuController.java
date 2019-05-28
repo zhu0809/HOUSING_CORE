@@ -1,12 +1,12 @@
 package com.bs.housing.controller.menu;
 
-import com.bs.housing.base.BaseController;
+import com.bs.housing.core.base.BaseController;
 import com.bs.housing.core.exception.ServiceException;
 import com.bs.housing.dto.MenuDTO;
 import com.bs.housing.po.MenuPO;
 import com.bs.housing.service.MenuService;
+import com.bs.housing.utils.DozerMapper;
 import com.bs.housing.utils.WebUtils;
-import com.bs.housing.utils.mapper.DozerMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.ui.ModelMap;

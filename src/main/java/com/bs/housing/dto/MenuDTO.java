@@ -1,6 +1,6 @@
 package com.bs.housing.dto;
 
-import com.bs.housing.base.BaseDTO;
+import com.bs.housing.core.base.BaseDTO;
 
 import java.util.Set;
 

@@ -1,7 +1,7 @@
 package com.bs.housing.core;
 
 
-import com.bs.housing.base.BasePO;
+import com.bs.housing.core.base.BasePO;
 
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;

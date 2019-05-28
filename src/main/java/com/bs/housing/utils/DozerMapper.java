@@ -1,4 +1,4 @@
-package com.bs.housing.utils.mapper;
+package com.bs.housing.utils;
 
 import org.dozer.DozerBeanMapper;
 import org.dozer.Mapper;

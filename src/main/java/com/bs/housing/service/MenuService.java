@@ -1,6 +1,6 @@
 package com.bs.housing.service;
 
-import com.bs.housing.base.BaseService;
+import com.bs.housing.core.base.BaseService;
 import com.bs.housing.core.exception.ServiceException;
 import com.bs.housing.dao.MenuDAO;
 import com.bs.housing.dto.MenuDTO;

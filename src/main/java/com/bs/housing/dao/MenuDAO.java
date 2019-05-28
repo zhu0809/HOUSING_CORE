@@ -1,6 +1,6 @@
 package com.bs.housing.dao;
 
-import com.bs.housing.base.BaseDAO;
+import com.bs.housing.core.base.BaseDAO;
 import com.bs.housing.po.MenuPO;
 
 import java.util.List;
