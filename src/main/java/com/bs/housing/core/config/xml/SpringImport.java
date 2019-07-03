@@ -3,8 +3,6 @@ package com.bs.housing.core.config.xml;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.ImportResource;
 
-import java.util.ArrayList;
-
 /**
  * <p> @类描述：	 外部xml配置      </p>
  * <p> @创建人：ZhuRongguo	    </p>

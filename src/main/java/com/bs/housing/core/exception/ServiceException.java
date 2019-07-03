@@ -1,11 +1,13 @@
 package com.bs.housing.core.exception;
 
+import com.bs.housing.core.base.BaseException;
+
 import java.util.Date;
 
 /**
  * 自定义业务异常
  */
-public class ServiceException extends Exception {
+public class ServiceException extends BaseException {
 
     private static final long serialVersionUID = -60761672739424592L;
 

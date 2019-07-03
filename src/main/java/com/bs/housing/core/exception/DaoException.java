@@ -1,12 +1,14 @@
 package com.bs.housing.core.exception;
 
+import com.bs.housing.core.base.BaseException;
+
 import java.util.Date;
 
 /**
  *自定义数据库操作异常
  *
  */
-public class DaoException extends Exception {
+public class DaoException extends BaseException {
 
     private static final long serialVersionUID = -5625211540764397976L;
 

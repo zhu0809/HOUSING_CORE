@@ -1,4 +1,4 @@
-package com.bs.housing.utils;
+package com.bs.housing.utils.common;
 
 import org.apache.commons.lang3.StringUtils;
 

@@ -1,10 +1,15 @@
 package com.bs.housing.core.base;
 
-import com.bs.housing.utils.WebUtils;
+import com.bs.housing.core.exception.DaoException;
+import com.bs.housing.core.exception.ServiceException;
+import com.bs.housing.utils.common.WebUtils;
+import com.bs.housing.utils.common.DateFormatUtils;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.View;
+
+import java.util.Date;
 
 /**
  * <p> @类描述：	                </p>
@@ -15,8 +20,6 @@ import org.springframework.web.servlet.View;
 public class BaseController {
     /**
      * 应用到所有@RequestMapping注解方法，在其执行之前初始化数据绑定器
-     *
-     * @param binder
      */
     @InitBinder
     public void initBinder(WebDataBinder binder) {
@@ -25,24 +28,25 @@ public class BaseController {
 
     /**
      * 把值绑定 到Model中，使全局@RequestMapping可以获取到该值
-     *
-     * @param model
      */
     @ModelAttribute
     public void addAttributes(Model model) {
-        model.addAttribute("author", "Magical Sam");
+        model.addAttribute(WebUtils.DATE, DateFormatUtils.format(new Date()));
     }
 
     /**
      * 全局异常捕捉处理
-     *
-     * @param ex
-     * @return
      */
 
     @ResponseBody
     @ExceptionHandler(value = Exception.class)
     public View errorHandler(Exception ex, Model model) {
+        if (ex instanceof DaoException) {
+
+        }
+        if (ex instanceof ServiceException) {
+
+        }
         model.addAttribute("msg", ex.getMessage());
         return WebUtils.VIEW;
     }

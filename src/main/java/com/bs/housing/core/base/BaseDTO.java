@@ -11,7 +11,6 @@ public class BaseDTO extends BasePage {
     private Long id;
 
     private Date createDate;
-
     private Date updateDate;
     private Boolean valid;
 

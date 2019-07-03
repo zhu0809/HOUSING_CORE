@@ -1,7 +1,6 @@
-package com.bs.housing.utils;
+package com.bs.housing.utils.common;
 
-import com.bs.housing.App;
-import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.web.servlet.View;
 import org.springframework.web.servlet.view.json.MappingJackson2JsonView;
 
 /**
@@ -12,12 +11,13 @@ import org.springframework.web.servlet.view.json.MappingJackson2JsonView;
 public interface WebUtils {
     /*返回数据*/
     String RESULT = "result";
-    MappingJackson2JsonView VIEW = new MappingJackson2JsonView();
     String MESSAGE = "message";
     String DATA = "data";
     String STATUS = "status";
+    String DATE = "date";
     /*返回数据 end*/
-    
+    View VIEW = new MappingJackson2JsonView();
+
     /*全局数据核心配置*/
-    ConfigurableApplicationContext CONTEXT = App.CONTEXT;
+//    ConfigurableApplicationContext CONTEXT = App.CONTEXT;
 }

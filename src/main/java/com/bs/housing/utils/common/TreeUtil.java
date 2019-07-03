@@ -1,4 +1,4 @@
-package com.bs.housing.utils;
+package com.bs.housing.utils.common;
 
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
