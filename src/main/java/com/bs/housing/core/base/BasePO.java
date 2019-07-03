@@ -1,6 +1,6 @@
 package com.bs.housing.core.base;
 
-import com.bs.housing.core.EntityListener;
+import com.bs.housing.core.entity.EntityListener;
 
 import javax.persistence.*;
 import java.io.Serializable;

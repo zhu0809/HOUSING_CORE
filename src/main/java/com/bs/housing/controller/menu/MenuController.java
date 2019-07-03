@@ -1,5 +1,6 @@
 package com.bs.housing.controller.menu;
 
+import com.alibaba.druid.pool.DruidDataSource;
 import com.bs.housing.core.base.BaseController;
 import com.bs.housing.core.exception.ServiceException;
 import com.bs.housing.dto.MenuDTO;
@@ -7,6 +8,7 @@ import com.bs.housing.po.MenuPO;
 import com.bs.housing.service.MenuService;
 import com.bs.housing.utils.DozerMapper;
 import com.bs.housing.utils.WebUtils;
+import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.ui.ModelMap;
@@ -31,6 +33,14 @@ public class MenuController extends BaseController {
     @Autowired
     MenuService menuService;
 
+    @Autowired
+    DruidDataSource druidDataSource;
+
+    public MenuController() {
+        JSONObject jsonObject = JSONObject.fromObject(druidDataSource);
+        System.out.println(jsonObject);
+    }
+
     @RequestMapping(value = "getAllMenu", method = RequestMethod.GET)
     View getAllMenu(HttpServletResponse response, HttpServletRequest request, ModelMap modelMap) {
         List<MenuPO> all = menuService.menuTree();
@@ -54,6 +64,8 @@ public class MenuController extends BaseController {
      */
     @RequestMapping(value = "menuTree")
     View menuTree(HttpServletResponse response, HttpServletRequest request, ModelMap modelMap) {
+        System.out.println(JSONObject.fromObject(druidDataSource));
+
         menuService.menuTree(modelMap);
         return WebUtils.VIEW;
     }

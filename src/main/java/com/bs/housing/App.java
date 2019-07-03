@@ -8,7 +8,7 @@ import org.springframework.context.ConfigurableApplicationContext;
 @SpringBootApplication
 @EnableCaching//标识开始缓存
 public class App {
-    public static ConfigurableApplicationContext CONTEXT = null;
+    public static ConfigurableApplicationContext CONTEXT ;
 
     public static void main(String[] args) {
         CONTEXT = SpringApplication.run(App.class, args);

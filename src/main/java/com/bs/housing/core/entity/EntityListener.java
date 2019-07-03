@@ -1,4 +1,4 @@
-package com.bs.housing.core;
+package com.bs.housing.core.entity;
 
 
 import com.bs.housing.core.base.BasePO;

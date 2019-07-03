@@ -3,6 +3,8 @@ package com.bs.housing.core.config.data;
 import com.alibaba.druid.pool.DruidDataSource;
 import com.alibaba.druid.support.http.StatViewServlet;
 import com.alibaba.druid.support.http.WebStatFilter;
+import net.sf.json.JSON;
+import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
@@ -31,6 +33,8 @@ public class DataSourceConfig {
     @Bean
     public DruidDataSource druidDataSource() {
         DruidDataSource druidDataSource = new DruidDataSource();
+        String password = druidDataSource.getPassword();
+        System.out.println(password);
         return druidDataSource;
     }
 
