@@ -13,23 +13,28 @@ import java.io.OutputStream;
 @Service
 public class POIUtils {
     public OutputStream out() throws Exception {
-        HSSFWorkbook wb = new HSSFWorkbook();
-        HSSFSheet sheet = wb.createSheet("01");
-        HSSFSheet sheet2 = wb.createSheet("02");
-        HSSFSheet sheet3 = wb.createSheet("03");
-        HSSFRow row = sheet.createRow(0);
-        row.setHeightInPoints(120);
 
-        HSSFCell cell = row.createCell(0);
-
-        cell.setCellValue("nihaoidfodisjiojfoisj");
-        sheet.setColumnWidth((short) 0, (short) 250);
-        HSSFCellStyle cs = cell.getCellStyle();
-
-        HSSFFont font = wb.createFont();
-        font.setFontName("黑体");
-        font.setColor((short) 14);
-        cs.setFont(font);
+        HSSFWorkbook wb = null;
+        try {
+            wb = new HSSFWorkbook();
+            HSSFSheet sheet = wb.createSheet("01");
+            HSSFSheet sheet2 = wb.createSheet("02");
+            HSSFSheet sheet3 = wb.createSheet("03");
+            HSSFRow row = sheet.createRow(0);
+            row.setHeightInPoints(120);
+            HSSFCell cell = row.createCell(0);
+            cell.setCellValue("nihaoidfodisjiojfoisj");
+            sheet.setColumnWidth((short) 0, (short) 250);
+            HSSFCellStyle cs = cell.getCellStyle();
+            HSSFFont font = wb.createFont();
+            font.setFontName("黑体");
+            font.setColor((short) 14);
+            cs.setFont(font);
+        } catch (Exception e) {
+            throw e;
+        } finally {
+            wb.close();
+        }
         return null;
     }
 
