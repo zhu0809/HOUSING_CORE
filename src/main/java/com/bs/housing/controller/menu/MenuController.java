@@ -97,6 +97,14 @@ public class MenuController extends BaseController {
         return WebUtils.VIEW;
     }
 
+    /**
+     * @param dto      实体
+     * @param response 返回信息
+     * @param request  请求信息
+     * @param modelMap 入参列表
+     * @return View
+     * 2019-12-27 14:46:24 朱荣果
+     */
     @RequestMapping(value = "fp", method = RequestMethod.GET)
     View save(MenuDTO dto, HttpServletResponse response, HttpServletRequest request, ModelMap modelMap) {
         Page<MenuPO> page = menuService.findPage(dto);
